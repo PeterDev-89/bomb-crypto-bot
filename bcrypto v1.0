@@ -1,0 +1,95 @@
+#!/bin/env python3
+from PIL.ImageOps import grayscale
+import pyautogui
+import time
+pyautogui.FAILSAFE = False
+
+print('Vamo bota pra fuder! Vapo! Pra parar o bot, aperta Ctrl + C')
+connect_left, connect_top = pyautogui.locateCenterOnScreen('connect_wallet_button.png', grayscale=True, confidence=0.8)
+
+def countdown(t):
+    for i in range(t,0,-1):
+        print(f"{i}", end="\r", flush=True)
+        time.sleep(1)
+
+def login():
+    print('Logando...')
+    pyautogui.click(connect_left, connect_top)
+    countdown(10)
+    pyautogui.moveTo('signature_request.png')
+    pyautogui.scroll(-10)
+    countdown(2)
+    pyautogui.click('sign_button.png')
+    countdown(20)
+    print('Logado!')
+
+login()
+print('Salvando as posições dos botões')
+treasure_button_left, treasure_button_top = pyautogui.locateCenterOnScreen('treasure_hunt_button.png', grayscale=True, confidence=0.8)
+print('Botão Treasure Hunt salvo')
+heroes_button_left, heroes_button_top = pyautogui.locateCenterOnScreen('heroes_button.png', grayscale=True, confidence=0.8)
+print('Botão Heroes salvo')
+pyautogui.click(heroes_button_left, heroes_button_top)
+time.sleep(2)
+dark_work_button_left, dark_work_button_top = pyautogui.locateCenterOnScreen('dark_work_button.png', grayscale=True, confidence=0.8)
+print('Botão work salvo')
+work_all_btn_left, work_all_btn_top = pyautogui.locateCenterOnScreen('work_all_btn.png', grayscale=True, confidence=0.8)
+print('work_all_btn.png')
+close_button_left, close_button_top = pyautogui.locateCenterOnScreen('close_button.png', grayscale=True, confidence=0.8)
+print('Botão X salvo')
+pyautogui.click(close_button_left, close_button_top)
+time.sleep(2)
+pyautogui.click(treasure_button_left, treasure_button_top)
+time.sleep(2)
+back_button_left, back_button_top = pyautogui.locateCenterOnScreen('back_button.png', grayscale=True, confidence=0.8)
+print('Botão voltar salvo')
+pyautogui.click(back_button_left, back_button_top)
+print('Botões salvos. Iniciando a rotina')
+time.sleep(2)
+
+def anti_idle():
+    pyautogui.click(back_button_left, back_button_top)
+    time.sleep(2)
+    pyautogui.click(treasure_button_left, treasure_button_top)
+    print('Aguardando 5 minutos para próxima checagem')
+    countdown(300)
+
+
+def wake_hero():
+    pyautogui.click(heroes_button_left, heroes_button_top)
+    time.sleep(1)
+    pyautogui.click(work_all_btn_left, work_all_btn_top)
+    time.sleep(2)
+    pyautogui.click(close_button_left, close_button_top)
+    time.sleep(1)
+    pyautogui.click(treasure_button_left, treasure_button_top)
+
+counter = 0
+
+for x in range(1000, 0, -1):
+    while counter <= 8:
+        print('Checando estado do jogo')
+        if pyautogui.locateCenterOnScreen('connect_wallet_button.png', grayscale=True, confidence=0.8) != None:
+            print('Desconectado')
+            login()
+            wake_hero()
+        elif pyautogui.locateCenterOnScreen('new_map_button.png', grayscale=True, confidence=0.8) != None:
+            print('Novo mapa! Boa!')
+            new_button_left, new_button_top = pyautogui.locateCenterOnScreen('new_map_button.png', grayscale=True, confidence=0.8)
+            pyautogui.click(new_button_left, new_button_top)
+        elif pyautogui.locateOnScreen('error_message.png', grayscale=True, confidence=0.8) != None:
+            print('Erro encontrado')
+            ok_left, ok_top = pyautogui.locateCenterOnScreen('ok_button.png', grayscale=True, confidence=0.8)
+            pyautogui.click(ok_left, ok_top)
+            countdown(15)
+            login()
+        elif pyautogui.locateCenterOnScreen('treasure_hunt_button.png', grayscale=True, confidence=0.8) != None:
+            print('Tela inicial')
+            wake_hero()
+        else:
+            counter = counter + 1
+            anti_idle()
+    else:
+        pyautogui.click(back_button_left, back_button_top)
+        counter = 0
+        wake_hero()
