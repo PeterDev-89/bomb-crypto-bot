@@ -8,15 +8,19 @@ import json
 pyautogui.FAILSAFE = False
 
 # TODO: Add multi-account support
-# > Ask the user if he wants to config the software or run the bot
-# > > Get user imput from the terminal
-# > > Set it to a case 
-# > Warn the user what he's gonna need to do to setup the bot
-# > Pick the amount of account that's gonna be used at a time
-# > > Set the amount of accounts to a variable that'll be used as a counter
-# > Teach the user how save the buttons images with the current name: new_map_btn, ok_btn
-# > Make the user save buttons position
-# > > Pick the location of the mouse with 
+# Ask the user how many accounts he's gonna use:
+# > Get user imput from the terminal
+# > Set it as an variable
+# > Check if there is already an ID saved with this amount
+# > > If true, ask if he wants to purge and reconfig it
+# > > > Purge from the DB
+# > > > Run the bot
+# > > Else, warn the user what he's gonna need to do to setup the bot, configure it
+# Teach the user how save the buttons images with the current name: new_map_btn, ok_btn
+# Make the user save buttons position:
+# > Pick the location of the mouse with keystrokes of: Connect Wallet, Sign, 
+# > Save that to a new variable that uses 
+
 
 
 print("Let's start! To stop it press CTRL + C")
