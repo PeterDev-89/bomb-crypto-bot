@@ -28,6 +28,7 @@
   <p align="center">
     A bot created with pyautogui to play bomb crypto.
     <br />
+    <br />
     <a href="#"><strong>Explore the docs »</strong></a>
     <br />
     <br />
@@ -189,3 +190,10 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 - []()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/linkedin_username
+[product-screenshot]: images/screenshot.png
