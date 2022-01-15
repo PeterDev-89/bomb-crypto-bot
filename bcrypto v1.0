@@ -4,7 +4,7 @@ import pyautogui
 import time
 pyautogui.FAILSAFE = False
 
-print('Vamo bota pra fuder! Vapo! Pra parar o bot, aperta Ctrl + C')
+print("Let's start! To stop press CTRL + C")
 connect_left, connect_top = pyautogui.locateCenterOnScreen('connect_wallet_button.png', grayscale=True, confidence=0.8)
 
 def countdown(t):
@@ -24,34 +24,34 @@ def login():
     print('Logado!')
 
 login()
-print('Salvando as posições dos botões')
+print('Recording all buttons positions.')
 treasure_button_left, treasure_button_top = pyautogui.locateCenterOnScreen('treasure_hunt_button.png', grayscale=True, confidence=0.8)
-print('Botão Treasure Hunt salvo')
+print('Treasure hunt button saved.')
 heroes_button_left, heroes_button_top = pyautogui.locateCenterOnScreen('heroes_button.png', grayscale=True, confidence=0.8)
-print('Botão Heroes salvo')
+print('Hero button saved.')
 pyautogui.click(heroes_button_left, heroes_button_top)
 time.sleep(2)
 dark_work_button_left, dark_work_button_top = pyautogui.locateCenterOnScreen('dark_work_button.png', grayscale=True, confidence=0.8)
-print('Botão work salvo')
+print('Work button saved.')
 work_all_btn_left, work_all_btn_top = pyautogui.locateCenterOnScreen('work_all_btn.png', grayscale=True, confidence=0.8)
-print('work_all_btn.png')
+print('Work all button saved.')
 close_button_left, close_button_top = pyautogui.locateCenterOnScreen('close_button.png', grayscale=True, confidence=0.8)
-print('Botão X salvo')
+print('Close button saved.')
 pyautogui.click(close_button_left, close_button_top)
 time.sleep(2)
 pyautogui.click(treasure_button_left, treasure_button_top)
 time.sleep(2)
 back_button_left, back_button_top = pyautogui.locateCenterOnScreen('back_button.png', grayscale=True, confidence=0.8)
-print('Botão voltar salvo')
+print('Back button saved.')
 pyautogui.click(back_button_left, back_button_top)
-print('Botões salvos. Iniciando a rotina')
+print('Buttons saved. Starting rotine.')
 time.sleep(2)
 
 def anti_idle():
     pyautogui.click(back_button_left, back_button_top)
     time.sleep(2)
     pyautogui.click(treasure_button_left, treasure_button_top)
-    print('Aguardando 5 minutos para próxima checagem')
+    print('Counting 5 minutos for the next check.')
     countdown(300)
 
 
@@ -68,23 +68,23 @@ counter = 0
 
 for x in range(1000, 0, -1):
     while counter <= 8:
-        print('Checando estado do jogo')
+        print('Checking game state.')
         if pyautogui.locateCenterOnScreen('connect_wallet_button.png', grayscale=True, confidence=0.8) != None:
-            print('Desconectado')
+            print('Disconnected.')
             login()
             wake_hero()
         elif pyautogui.locateCenterOnScreen('new_map_button.png', grayscale=True, confidence=0.8) != None:
-            print('Novo mapa! Boa!')
+            print('New map! Nice!')
             new_button_left, new_button_top = pyautogui.locateCenterOnScreen('new_map_button.png', grayscale=True, confidence=0.8)
             pyautogui.click(new_button_left, new_button_top)
         elif pyautogui.locateOnScreen('error_message.png', grayscale=True, confidence=0.8) != None:
-            print('Erro encontrado')
+            print('Error!')
             ok_left, ok_top = pyautogui.locateCenterOnScreen('ok_button.png', grayscale=True, confidence=0.8)
             pyautogui.click(ok_left, ok_top)
             countdown(15)
             login()
         elif pyautogui.locateCenterOnScreen('treasure_hunt_button.png', grayscale=True, confidence=0.8) != None:
-            print('Tela inicial')
+            print('Start screen.')
             wake_hero()
         else:
             counter = counter + 1
