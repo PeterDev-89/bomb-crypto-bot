@@ -20,7 +20,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/PeterDve/bomb-crypto-bot">
-    <img src="images/logo.png" alt="Logo" width="140" height="80">
+    <img src="readme-images/logo.png" alt="Logo" width="140" height="80">
   </a>
 
 <h3 align="center">Bomb Crypto Bot</h3>
@@ -78,14 +78,10 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-- [Next.js](https://nextjs.org/)
-- [React.js](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Angular](https://angular.io/)
-- [Svelte](https://svelte.dev/)
-- [Laravel](https://laravel.com)
-- [Bootstrap](https://getbootstrap.com)
-- [JQuery](https://jquery.com)
+- [Python](https://www.python.org)
+- [Pyautogui](https://pyautogui.readthedocs.io/en/latest/)
+- [OpenCV](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html)
+- [Postgresql](https://www.postgresql.org)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
